@@ -13,18 +13,17 @@
     <script>
         let {reactive, effect} = VueReactivity
 
-        let state = reactive({name:'jack',age:18})
+        let state = reactive({name:'jack',age:18,obj:{a:1}})
  
         // effect 副作用 一加载就执行
         effect (()=>{
             app.innerHTML = state.name + '今年' + state.age + '岁'
         },{lazy:true})
         // vue中页面渲染时 会做依赖收集 vue2属性收集的是watcher，vue3属性收集的是effect
-
-        console.log(state)
-        setTimeout(() => {
-            state.age = 22
-        }, 1000);
+        
+        // setTimeout(() => {
+        //     state.age = 22
+        // }, 1000);
 
     </script>
 

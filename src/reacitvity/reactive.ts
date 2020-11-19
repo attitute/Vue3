@@ -20,9 +20,8 @@ function createReactiveObject(target:Object, baseHandler){
     if(!isObject(target)) {
         return target
     }
-    // 如果对象已经被代理 就不需要再次代理
     let existProxy = reactiveMap.get(target)
-
+    // 如果对象已经被代理 就不需要再次代理
     if(existProxy){
         return existProxy
     }
