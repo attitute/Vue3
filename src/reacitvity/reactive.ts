@@ -1,15 +1,10 @@
-
-
-
-const mutableHandlers = {
-    get(){},
-    set(){}
-}
+import { isObject } from "../shared";
+import { mutableHandlers } from "./baseHandlers";
 
 
 export const reactive = (target:Object)=>{
    
-    // 将对象变成响应式对象
+    // 将对象变成响应式对象 
 
     // 在vue2.0 defineProprety直接循环对象中的每一个属性，无法对不存在的属性做处理，还需要递归处理多级对象
 
@@ -23,5 +18,5 @@ export const reactive = (target:Object)=>{
 }
 
 function createReactiveObject(target:Object, baseHandler){
-
+    if (!isObject)
 }
