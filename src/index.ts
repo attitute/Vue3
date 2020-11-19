@@ -1,4 +1,2 @@
 
-export * from './reacitvity'
-
-
+export * from './reacitvity/index'

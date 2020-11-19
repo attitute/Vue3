@@ -12,17 +12,19 @@
     <!-- <script src="/node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
     <script>
         let {reactive, effect} = VueReactivity
-        console.log(reactive , effect)
 
-        let state = reactive({name:'jack',age:18})
+        let state = reactive({name:'jack',age:18,obj:{a:1},arr:[1,2,3,4,5,6]})
  
         // effect 副作用 一加载就执行
         effect (()=>{
-            app.innerHTML = state.name + '今年' + state.age + '岁'
-        })
+            app.innerHTML = state.arr[3]
+        },{lazy:true})
         // vue中页面渲染时 会做依赖收集 vue2属性收集的是watcher，vue3属性收集的是effect
-
-        state.name = '22'
+        
+        setTimeout(() => {
+            state.arr.length = 3
+        }, 1000);
+        
 
     </script>
 
